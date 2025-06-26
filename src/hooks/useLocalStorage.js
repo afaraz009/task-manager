@@ -21,7 +21,7 @@ export function useLocalStorage(key, initialValue) {
       setStoredValue(valueToStore);
       
       if (typeof window !== 'undefined') {
-        window.localStorage.setItem(key, JSON.stringify(valueToStore));
+        window.localStorage.setItem('user-tasks', JSON.stringify(valueToStore));
       }
     } catch (error) {
       console.error(`Error setting localStorage key "${key}":`, error);

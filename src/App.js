@@ -21,9 +21,11 @@ function App() {
   };
 
   const toggleTask = (id) => {
-    setTasks(tasks.map(task =>
-      task.id === id ? { ...task, completed: !task.completed } : task
-    ));
+    const task = tasks.find(task => task.id === id);
+    if (task) {
+      task.completed = !task.completed;
+      setTasks(tasks);
+    }
   };
 
   const deleteTask = (id) => {
@@ -33,9 +35,9 @@ function App() {
   const getFilteredTasks = () => {
     switch (filter) {
       case 'active':
-        return tasks.filter(task => !task.completed);
-      case 'completed':
         return tasks.filter(task => task.completed);
+      case 'completed':
+        return tasks.filter(task => !task.completed);
       default:
         return tasks;
     }

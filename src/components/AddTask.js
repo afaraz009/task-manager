@@ -6,8 +6,8 @@ function AddTask({ onAddTask }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputValue.trim()) {
-      onAddTask(inputValue);
       setInputValue('');
+      onAddTask(inputValue);
     }
   };
 
